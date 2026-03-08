@@ -242,3 +242,15 @@ Branch: master
 DOCX: pandoc publication\your_book.md -o outputs\your_book.docx
 EPUB: pandoc publication\your_book.md -o outputs\your_book.epub
 PDF:  pandoc publication\your_book.md --pdf-engine=lualatex --include-in-header=preamble.tex -o outputs\your_book.pdf
+
+---
+
+## Git Status
+Initialised: yes
+First commit: "Initial commit: DoughForge project structure and first clean build"
+Branch: master
+
+## Confirmed Working Builds
+DOCX: pandoc publication\your_book.md -o outputs\your_book.docx
+EPUB: pandoc publication\your_book.md -o outputs\your_book.epub
+PDF:  pandoc publication\your_book.md --pdf-engine=lualatex --include-in-header=preamble.tex -o outputs\your_book.pdf
