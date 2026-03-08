@@ -9,8 +9,29 @@ cover_image: assets/cover/final_cover.jpg
 
 chapters:
   - id: ch0-0-seriesintroduction
-    title: "Ch0.0 SeriesIntroduction"
+    title: "Ch0.0 — Series Introduction"
     file: chapters/Ch0.0-SeriesIntroduction.md
+  - id: ch0-1-unacknowledgedlegislator
+    title: "Ch0.1 — The Unacknowledged Legislator Writes a Build Script"
+    file: chapters/Ch0.1-UnacknowledgedLegislator.md
+  - id: ch0-2-rationstillarriving
+    title: "Ch0.2 — The Ration Still Arriving"
+    file: chapters/Ch0.2-TheRationStillArriving.md
+  - id: ch0-3-whodoweowethismoneyt
+    title: "Ch0.3 — Who Do We Owe This Money To, Exactly?"
+    file: chapters/Ch0.3-WhoDoWeOweThisMoneyTo.md
+  - id: ch0-4-moralsign
+    title: "Ch0.4 — The Moral Sign"
+    file: chapters/Ch0.4-TheMoralSign.md
+  - id: ch0-5-dyingbird
+    title: "Ch0.5 — The Dying Bird and the Plumage"
+    file: chapters/Ch0.5-TheDyingBirdAndThePlumage.md
+  - id: ch0-6-formulacounterspell
+    title: "Ch0.6 — The Formula and the Counter-Spell"
+    file: chapters/Ch0.6-TheFormulaAndTheCounterSpell.md
+  - id: ch0-7-greyspace
+    title: "Ch0.7 — The Grey Space"
+    file: chapters/Ch0.7-TheGreySpace.md
   - id: quickstart
     title: "Quick Start Guide"
     file: chapters/quickstart.md
@@ -21,4 +42,3 @@ print:
   interior: chapters/
   font: "Georgia"
   isbn_print: ""
-
