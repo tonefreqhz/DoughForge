@@ -1,0 +1,439 @@
+<p># DoughForge: The Reproducible Self-Publishing Desktop Kit</p>
+<p>**By Roger G. Lewis**</p>
+<p>*“No passion in the world is equal to the passion to alter someone
+else’s draft.”*</p>
+<p>— H. G. Wells</p>
+<hr />
+<p>## Frontmatter / YAML Metadata Block</p>
+<p>*(For Reedsy/Pandoc — paste at top of your .md file before
+converting)*</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;DoughForge&quot;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;The Reproducible Self-Publishing Desktop Kit&quot;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Roger G. Lewis&quot;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">series</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;DoughForge Guides&quot;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">series\_number</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2026&quot;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">language</span><span class="kw">:</span><span class="at"> en-GB</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">rights</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;© 2026 Roger G. Lewis&quot;</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;A practical, cheerful guide to building a repeatable self-publishing workflow using Markdown, Pandoc, and Git — so you stop losing days to drift and start shipping books.&quot;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<hr />
+<p>## Foreword: From a Cheerful Realist</p>
+<p>I’ve published eleven books through Draft2Digital since 2018. Two
+more are in the pipeline. That means I’ve had enough *oh no* moments to
+qualify as a minor weather system.</p>
+<p>The recurring theme was never incompetence. It was **drift**.</p>
+<p>Titles drift. Covers drift. Internal title pages drift. Versions
+drift. And suddenly your “final” file has cousins — loud, contradictory
+cousins who all claim to be the real one.</p>
+<p>This kit is how you stop drift from running your publishing schedule.
+It won’t make you a developer. It won’t demand you love tooling. It just
+asks that you stop fearing it — and that you give your future self a
+fighting chance.</p>
+<hr />
+<p>## Chapter 1: The Reproducible Self-Publishing Desktop Kit</p>
+<p>### Introduction: Release Notes for Writers Who’ve Been Burned</p>
+<p>There’s a line buried in early UNIX source code that reads:</p>
+<blockquote>
+<p>*“You are not expected to understand this.”*</p>
+</blockquote>
+<p>It wasn’t a challenge. It meant: *this won’t be on the exam.*</p>
+<p>So naturally, it’s on the exam.</p>
+<p>Not because you need to become a compiler archaeologist, but because
+modern publishing tools have the same bad habit as old systems code —
+they quietly accumulate quirks, and then you lose an afternoon (or a
+launch date) to something you were never warned about.</p>
+<p>This pamphlet is a small act of civil engineering:</p>
+<p>- **One canonical manuscript** — the single source of truth for your
+book</p>
+<p>- **A repeatable build** — producing PDF, EPUB, and DOCX from that
+one source</p>
+<p>- **A boring paper trail** — so nothing drifts without you
+noticing</p>
+<p>You already know how to write. The frustrating part is everything
+*around* the writing: the title that doesn’t match, the cover that
+shifted, the EPUB that behaves perfectly until a platform preview
+invents new physics, and the eternal haunting question:</p>
+<p>*Which file is the real one?*</p>
+<p>This pamphlet is a small answer to that question. Not glamorous. Just
+reliably boring — and boring, in publishing, is a superpower.</p>
+<hr />
+<p>## Chapter 2: Origin Story — The Quirks That Ate Publication Day</p>
+<p>Every self-publisher has a story. Mine involves a cover that said one
+subtitle, an internal title page that said another, and a store listing
+that had apparently been updated by a ghost.</p>
+<p>The common culprits are always the same:</p>
+<p>- **Cover title/subtitle doesn’t match the internal title page.**
+Looks fine in your head; looks wrong to every reader.</p>
+<p>- **EPUB respects headings; DOCX decides to improvise.** Pandoc is
+good. Platform converters are adventurous.</p>
+<p>- **Scene breaks turn into mystery blank space** — or, worse, mystery
+*no* space.</p>
+<p>- **Previews look fine until the store conversion does its own
+thing.** You checked it. You *definitely* checked it.</p>
+<p>- **You fix one thing and accidentally upload a different file than
+the one you just fixed.** This one is the most demoralising.</p>
+<p>The fix isn’t heroic. It’s practical: **write down reality, then make
+the tools obey it.**</p>
+<p>That’s what an Anchor file is for — a plain, boring contract that
+says: *these paths are real, these commands work on this machine, this
+is the source, and these are the outputs.*</p>
+<hr />
+<p>### Prompt Box: Check What’s Real Before You Fix What Isn’t</p>
+<blockquote>
+<p>**Pitfall: Notepad + OneDrive + Markdown fences**</p>
+</blockquote>
+<blockquote>
+
+</blockquote>
+<blockquote>
+<p>If Notepad offers to “clear all and save new” or says it can’t find
+the file — **stop**. Verify you’re editing the file you think you are.
+In synced folders like OneDrive, the file can change while Notepad has
+it open.</p>
+</blockquote>
+<blockquote>
+
+</blockquote>
+<blockquote>
+<p>Also: Markdown code fences are literal. If you open a fenced block
+with <code>```</code> and forget the closing, the rest of your document
+becomes code. Your PDF will look extraordinary. Not in a good way.</p>
+</blockquote>
+<blockquote>
+
+</blockquote>
+<blockquote>
+<p>**Two quick checks:**</p>
+</blockquote>
+<blockquote>
+<ol type="1">
+<li>Confirm the manuscript file is real and non-empty before
+building.</li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2" type="1">
+<li>Count your code fences — they should come in pairs.</li>
+</ol>
+</blockquote>
+<hr />
+<p>## Chapter 3: Inside the Publishing Pain Locker</p>
+<p>Publishing pain usually comes from one root cause: **you stop knowing
+which file is the truth.**</p>
+<p>So we pick a truth. And we make everything else a rebuildable product
+of that truth.</p>
+<p>### The Ground Truth Rule</p>
+<p>One canonical manuscript. Everything else is generated.</p>
+<p>If an output looks wrong, you do not fix the output. You fix the
+manuscript — or the build rules — and you rebuild. This isn’t ideology.
+It’s how you keep launch day boring.</p>
+<p>### What Counts as Canonical (and What Doesn’t)</p>
+<p>**Edit these:**</p>
+<p>- <code>publication/your\_book.md</code> — the manuscript</p>
+<p>- Images referenced by the manuscript (covers, diagrams)</p>
+<p>- Build scripts and templates you actually control</p>
+<p>**Rebuild these — never edit directly:**</p>
+<p>- <code>outputs/\*.pdf</code></p>
+<p>- <code>outputs/\*.epub</code></p>
+<p>- <code>outputs/\*.docx</code></p>
+<p>If you can regenerate it, don’t treat it like source. The moment you
+start “just quickly fixing” a PDF directly, you’ve created a cousin. The
+cousins will multiply.</p>
+<p>### The Anchor Connection — No Mysticism, Just Receipts</p>
+<p>Your <code>ANCHOR.md</code> file is the contract that keeps you
+honest:</p>
+<p>- The repo layout you expect</p>
+<p>- The commands that should work</p>
+<p>- The checks you run when reality starts drifting</p>
+<p>When you’re tired, *obvious* becomes expensive. Anchor files are
+cheap insurance.</p>
+<hr />
+<p>## Chapter 4: Git and the Kit — Version Control Without the Drama</p>
+<p>Git is not here to turn you into a developer. It’s here to prevent
+these specific disasters:</p>
+<p>- *“I fixed it yesterday. Where did it go?”*</p>
+<p>- *“Which draft did I upload?”*</p>
+<p>- *“I changed one tiny thing and now everything is different.”*</p>
+<p>- *“I need the previous subtitle back. The good one.”*</p>
+<p>### The Writer-Friendly Git Minimum</p>
+<p>You can get 90% of the value with three commands:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;describe what you just did&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div>
+<p>That’s it. No branching epic required. No pull requests. No rebasing.
+Just a trail of breadcrumbs that leads you back to the version that
+worked.</p>
+<p>### What to Commit</p>
+<p>**Commit these:**</p>
+<p>- Manuscripts (<code>publication/\*.md</code>)</p>
+<p>- Anchor and logs (<code>ANCHOR.md</code>,
+<code>INTERIM\_PROGRESS\_LOG.md</code>)</p>
+<p>- Build scripts (<code>tools/</code>)</p>
+<p>- Templates and styles you own</p>
+<p>- Referenced images</p>
+<p>**Avoid committing:**</p>
+<p>- Generated outputs (<code>outputs/\*</code>) — unless you
+deliberately want release artefacts in the repo, in which case do it in
+a separate, clearly labelled commit</p>
+<p>### A Good Commit Message Formula</p>
+<p>Use: **verb + object + reason**</p>
+<p>Examples:</p>
+<p>-
+<code>Add epigraph and replace HTML breaks with scene markers</code></p>
+<p>- <code>Clarify Anchor contract and add build checks</code></p>
+<p>- <code>Fix heading levels to improve EPUB navigation</code></p>
+<p>Your future self doesn’t need poetry. They need context. Give them
+context.</p>
+<hr />
+<p>## Chapter 5: Covers, Titles, Headings, and Metadata</p>
+<p>Metadata is the most boring part of publishing — until it costs you
+three hours on a Friday afternoon.</p>
+<p>### Where Drift Happens</p>
+<p>Drift occurs when these four things don’t match each other:</p>
+<p>1. **Cover text** — what the reader sees on the front</p>
+<p>2. **Internal title page** — what’s inside the book</p>
+<p>3. **Platform metadata fields** — what Draft2Digital, Reedsy, or your
+distributor shows</p>
+<p>4. **Your YAML** — what you told Pandoc the book is called</p>
+<p>### The One Sheet of Reality Trick</p>
+<p>Maintain one place where the current truth lives. YAML at the top of
+your manuscript is ideal, because it travels with the file. Your YAML
+block should contain:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Your Actual Title&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Your Actual Subtitle&quot;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Your Name, Spelled Correctly&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">series</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Series Name If Applicable&quot;</span></span></code></pre></div>
+<p>**Practical rules that prevent drift:**</p>
+<p>- Change metadata in the YAML *first*, then update the cover and
+title page</p>
+<p>- Treat store dashboards as outputs, not sources of truth — the
+dashboard reflects what you uploaded, not what’s correct</p>
+<p>- Decide your public title policy and stick to it: subtitle
+everywhere, or cover-only? Document the decision</p>
+<p>### EPUB Note — Quiet but Important</p>
+<p>EPUB readers and library apps surface metadata aggressively. If your
+book looks wrong in a device library, it’s usually metadata — not
+layout. Check the YAML before you rebuild the cover.</p>
+<hr />
+<p>## Chapter 6: Covers and Artwork — We’ve Got You Covered</p>
+<p>Covers are where drift becomes visible. And embarrassing.</p>
+<p>The classic mismatch: the cover says *Title: The Brilliant Subtitle*.
+The title page inside says *Title*. The store listing says something
+from six months ago that you thought you’d updated.</p>
+<p>### Minimum Cover Alignment Checklist</p>
+<p>Before you upload anything, verify:</p>
+<p>- [ ] Cover text matches YAML (title, subtitle, author — all of
+it)</p>
+<p>- [ ] Internal title page matches YAML (or you’ve intentionally
+omitted the subtitle and documented that choice)</p>
+<p>- [ ] EPUB metadata matches YAML</p>
+<p>- [ ] Filenames are boring and consistent — no
+<code>final\_REAL\_v3\_THISONE.pdf</code></p>
+<p>### Where People Lose Time</p>
+<p>- Exporting multiple cover sizes and forgetting which one is live</p>
+<p>- Tweaking cover text after upload but not updating the
+manuscript</p>
+<p>- A tiny subtitle change cascading into four separate edits across
+three different tools</p>
+<p>**The time-saving principle:** Make metadata edits once, in the YAML.
+Then rebuild and re-export everything. One edit, one rebuild, one
+upload.</p>
+<hr />
+<p>## Chapter 7: Going With Your Flow</p>
+<p>Different writers have different habits. Good. The workflow should
+adapt without breaking.</p>
+<p>This kit is deliberately permissive. Write in Markdown from an LLM, a
+text editor, Obsidian, VS Code, Notepad — whatever suits you. The
+structure is what matters, not the tool you used to create it.</p>
+<p>### A Safe Subset of Markdown for Predictable Builds</p>
+<p>**Use freely:**</p>
+<p>- <code>#</code> / <code>##</code> / <code>###</code> headings</p>
+<p>- Bullet and numbered lists</p>
+<p>- Blockquotes (<code>&gt;</code>)</p>
+<p>- Code fences (triple backticks — always close them)</p>
+<p>- Emphasis (*italic*, **bold**)</p>
+<p>- Links</p>
+<p>**Be cautious with:**</p>
+<p>- Raw HTML for layout — it varies by output format</p>
+<p>- Manual spacing tricks (multiple blank lines render differently in
+different converters)</p>
+<p>- Forcing pagination for EPUB or DOCX — they don’t have pages in the
+same way a PDF does</p>
+<p>### Formatting Philosophy for Tired Humans</p>
+<p>If you can’t explain why a formatting trick exists in one sentence,
+it doesn’t belong in the canonical manuscript. If it’s there to make one
+output look slightly nicer and it breaks two others, it’s not a trick —
+it’s a trap.</p>
+<hr />
+<p>## Chapter 8: Preparing to Ship — Print All</p>
+<p>Getting to *shipped* is mostly about reducing avoidable surprises.
+The goal is a launch day so boring it barely registers.</p>
+<p>### A Sane Timeline (Pamphlet Edition)</p>
+<p>1. Write in the canonical Markdown</p>
+<p>2. Build PDF, EPUB, and DOCX locally</p>
+<p>3. Spot-check the usual failure points (see checklist below)</p>
+<p>4. Commit the changes that produced the shippable build</p>
+<p>5. Upload and distribute</p>
+<p>6. Tag the release (optional, but your future self will thank
+you)</p>
+<p>### The Firstship Checklist — Fast, Not Fancy</p>
+<p>**Content sanity:**</p>
+<p>- [ ] Title, subtitle, and author match YAML and cover</p>
+<p>- [ ] Contents list matches headings (or is clearly manual and you’ve
+documented that)</p>
+<p>- [ ] No accidental *everything is code* sections from unclosed
+fences</p>
+<p>**Build sanity:**</p>
+<p>- [ ] PDF opens, fonts look normal, headings look right</p>
+<p>- [ ] EPUB opens in at least one reader (Calibre is fine)</p>
+<p>- [ ] DOCX opens and headings are *real headings*, not bold
+paragraphs</p>
+<p>**Common output gotchas:**</p>
+<p>- [ ] Scene breaks are consistent — pick one style and stick to
+it</p>
+<p>- [ ] Images render and are correctly sized</p>
+<p>- [ ] Smart punctuation renders cleanly (XeLaTeX usually behaves;
+DOCX sometimes doesn’t)</p>
+<p>### The Two-Minute Preview Rule</p>
+<p>If you only have two minutes, check:</p>
+<p>1. The title and first page</p>
+<p>2. The contents or navigation</p>
+<p>3. One code block</p>
+<p>4. One major section break</p>
+<p>Most disasters show up right there. If those four things look right,
+you’re probably fine.</p>
+<hr />
+<p>## Chapter 9: The W-ANCHOR Protocol — This Is the Panicking
+Section</p>
+<p>Here’s where we talk about what to do when things go wrong. Because
+they will go wrong. Not catastrophically — just in that low-grade,
+where-did-my-afternoon-go way that self-publishing specialises in.</p>
+<p>### The Origin of the Anchor</p>
+<p>Debugging digital tooling is painstaking work. Getting LLMs to do the
+heavy lifting is a process of breaking things, fixing them, then
+breaking them again — hopefully arriving somewhere useful before the
+whole thing falls over in production.</p>
+<p>It was AI drift and AI hallucinations that inspired me to write this
+booklet, as a side project to the Home@ix FAIR-index project. In other
+projects I’ve developed tricks for screening LLM biases (the AQAL
+source-of-truth file), for escaping the Google Bubble, and for
+navigating the media Overton Window. All of those habits fed into this
+workflow — which is my own workflow, ported into a tool that’s still
+adaptable for your style.</p>
+<p>### The W-ANCHOR Glossary — For When You’ve Forgotten What Everything
+Means</p>
+<div class="line-block">Term | What It Actually Means |</div>
+<p>|—|—|</p>
+<div class="line-block">**Anchor file** | The contract for what’s real:
+paths, tools, commands, outputs |</div>
+<div class="line-block">**Canonical manuscript** | The one source you
+edit; everything else is generated from it |</div>
+<div class="line-block">**Drift** | Mismatches across cover, title page,
+stores, files, versions |</div>
+<div class="line-block">**Outputs** | PDF/EPUB/DOCX artefacts built from
+the canonical manuscript |</div>
+<div class="line-block">**Pandoc** | The converter that turns Markdown
+into the three formats |</div>
+<div class="line-block">**XeLaTeX** | The PDF engine — good with fonts
+and smart punctuation |</div>
+<div class="line-block">**Code fence** | Triple backticks that must
+always be closed |</div>
+<div class="line-block">**Which file is real?** | The canonical
+manuscript + the commit history |</div>
+<p>### The Protocol in Plain English</p>
+<p>When something looks wrong:</p>
+<p>1. **Don’t fix the output.** Fix the source.</p>
+<p>2. **Check the YAML first.** Most drift starts there.</p>
+<p>3. **Rebuild from the canonical manuscript.** Don’t patch the
+PDF.</p>
+<p>4. **Commit before you upload.** Always.</p>
+<p>5. **If you’re not sure which file is real, check Git.** That’s what
+it’s for.</p>
+<hr />
+<p>## Closing Note: Cheerful and Realistic</p>
+<p>You’re not trying to become a tool expert. You’re trying to ship
+writing without losing days to nonsense.</p>
+<p>This kit doesn’t remove quirks from the world. It makes them
+**repeatable, diagnosable, and eventually boring.**</p>
+<p>The W-ANCHOR Protocol is an anchor, not a cage. It holds you in place
+just enough that the tide doesn’t carry your subtitle away.</p>
+<p>If you want to stop W-ANCHORing, lose your cherry by forking this!
+[cherry][rocket]</p>
+<hr />
+<blockquote>
+<p>*Note: This Reproducible Self-Pub Kit is based on the architecture
+and patterns from the Home@ix FAIR project (see
+[https://github.com/tonefreqhz/hom-ixFAIRindex](https://github.com/tonefreqhz/hom-ixFAIRindex)),
+which established the foundational workflow for reproducible builds,
+PROJECT_ROOT anchoring, build invariants, and the Build Notes Anchor to
+prevent AI/human drift in long-running development.*</p>
+</blockquote>
+<hr />
+<p>**Happy publishing. I hope this helps.**</p>
+<p>*Best,*</p>
+<p>*Rog*</p>
+<hr />
+<p>## Appendix: Quick Build Commands</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">\#</span> Build PDF</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> publication/your\_book.md <span class="dt">\\</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&amp;</span><span class="ex">nbsp</span><span class="kw">;</span> <span class="ex">--pdf-engine=xelatex</span> <span class="dt">\\</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">&amp;</span><span class="ex">nbsp</span><span class="kw">;</span> <span class="ex">-o</span> outputs/your\_book.pdf</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ex">\#</span> Build EPUB</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> publication/your\_book.md <span class="dt">\\</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="kw">&amp;</span><span class="ex">nbsp</span><span class="kw">;</span> <span class="ex">--epub-cover-image=covers/cover.jpg</span> <span class="dt">\\</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="kw">&amp;</span><span class="ex">nbsp</span><span class="kw">;</span> <span class="ex">-o</span> outputs/your\_book.epub</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ex">\#</span> Build DOCX</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> publication/your\_book.md <span class="dt">\\</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="kw">&amp;</span><span class="ex">nbsp</span><span class="kw">;</span> <span class="ex">-o</span> outputs/your\_book.docx</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="ex">\#</span> Commit a clean build</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;Build: shippable version with corrected subtitle&quot;</span></span></code></pre></div>
+<hr />
+<p>*DoughForge: The Reproducible Self-Publishing Desktop Kit*</p>
+<p>*First Edition — 2026*</p>
+<p>*Roger G. Lewis*</p>
+<p>*[https://github.com/tonefreqhz/hom-ixFAIRindex](https://github.com/tonefreqhz/hom-ixFAIRindex)*</p>
