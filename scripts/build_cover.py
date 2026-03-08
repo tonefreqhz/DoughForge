@@ -22,6 +22,14 @@ stamp_raw = Image.open(os.path.join(ASSET_DIR, 'stamp_clean.png')).convert('RGBA
 W, H = base.size
 print(f'Canvas: {W}x{H}')
 
+# ── Autocrop transparent padding from stamp ──────────────────────
+bbox = stamp_raw.getbbox()
+if bbox:
+    stamp_raw = stamp_raw.crop(bbox)
+    print(f'Stamp cropped to: {stamp_raw.size}')
+else:
+    print('Stamp: no visible content found — check stamp_clean.png')
+
 txt  = Image.new('RGBA', (W, H), (0,0,0,0))
 draw = ImageDraw.Draw(txt)
 
@@ -50,7 +58,7 @@ sw = int(stamp_raw.width * (sh / stamp_raw.height))
 stamp_r = stamp_raw.resize((sw, sh), Image.LANCZOS)
 sx = (W - sw) // 2
 sy = y
-print(f'Stamp: {stamp_r.size}  pos: ({sx},{sy})')
+print(f'Stamp resized: {stamp_r.size}  pos: ({sx},{sy})')
 
 centred(draw, AUTHOR, f_author, GREEN, SHADOW, int(H * 0.93))
 
