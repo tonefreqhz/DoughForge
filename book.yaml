@@ -1,0 +1,21 @@
+title: "DoughForge"
+subtitle: "Reproducible Pub Kit"
+author: "Roger G Lewis"
+language: en
+isbn_epub: ""
+publisher: "DoughForge Press"
+rights: "© 2026 Roger G Lewis"
+cover_image: assets/cover/final_cover.jpg
+
+chapters:
+  - id: quickstart
+    title: "Quick Start Guide"
+    file: chapters/quickstart.md
+
+print:
+  trim: "6x9"
+  bleed: "0.125in"
+  interior: chapters/
+  font: "Georgia"
+  isbn_print: ""
+
