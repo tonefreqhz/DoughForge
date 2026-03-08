@@ -1,10 +1,10 @@
 title: "DoughForge"
 subtitle: "Reproducible Pub Kit"
-author: "Roger S Lewis"
+author: "Roger G Lewis"
 language: en
 isbn_epub: ""
 publisher: "DoughForge Press"
-rights: "© 2026 Roger S Lewis"
+rights: "© 2026 Roger G Lewis"
 cover_image: assets/cover/final_cover.jpg
 
 chapters:
@@ -18,3 +18,4 @@ print:
   interior: chapters/
   font: "Georgia"
   isbn_print: ""
+
