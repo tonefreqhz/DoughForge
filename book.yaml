@@ -8,6 +8,9 @@ rights: "© 2026 Roger G Lewis"
 cover_image: assets/cover/final_cover.jpg
 
 chapters:
+  - id: ch0-0-seriesintroduction
+    title: "Ch0.0 SeriesIntroduction"
+    file: chapters/Ch0.0-SeriesIntroduction.md
   - id: quickstart
     title: "Quick Start Guide"
     file: chapters/quickstart.md
