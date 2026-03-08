@@ -605,4 +605,3 @@ The AQUAL widget system lives in `widgets/` in both repos. Before drafting any p
 
 *End of DoughForge — First Edition.*
 *The anchor holds.*
-'@ | Set-Content -Path "publication\your_book.md" -Encoding UTF8
