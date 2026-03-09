@@ -14,3 +14,12 @@ Thumbs.db
 
 Noto_Sans/
 Sora/
+
+# Session notes and conversation logs — archive only, never at root
+*.txt
+# Exceptions — tracked txt files must be in subdirectories
+
+# Build outputs at root
+*.epub
+*.pdf
+*.docx
