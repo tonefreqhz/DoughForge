@@ -6,76 +6,98 @@ import os
 # -----------------------------------------------------------------------
 # REPO ROOT
 # -----------------------------------------------------------------------
-REPO_ROOT        = os.path.dirname(os.path.abspath(__file__))
+REPO_ROOT         = os.path.dirname(os.path.abspath(__file__))
 
 # -----------------------------------------------------------------------
 # PUBLICATION
 # -----------------------------------------------------------------------
-PUBLICATION_DIR  = os.path.join(REPO_ROOT, "publication")
-MANUSCRIPT       = os.path.join(PUBLICATION_DIR, "your_book.md")
+PUBLICATION_DIR   = os.path.join(REPO_ROOT, "publication")
+MANUSCRIPT        = os.path.join(PUBLICATION_DIR, "your_book.md")
+
+# -----------------------------------------------------------------------
+# FRONT MATTER
+# -----------------------------------------------------------------------
+FRONT_MATTER_DIR  = os.path.join(PUBLICATION_DIR, "front_matter")
+FOREWORD_FOSTER   = os.path.join(FRONT_MATTER_DIR, "foreword_foster_lewis.md")
 
 # -----------------------------------------------------------------------
 # OUTPUTS
 # -----------------------------------------------------------------------
-OUTPUTS_DIR      = os.path.join(REPO_ROOT, "outputs")
-OUTPUT_PDF       = os.path.join(OUTPUTS_DIR, "your_book.pdf")
-OUTPUT_EPUB      = os.path.join(OUTPUTS_DIR, "your_book.epub")
-OUTPUT_DOCX      = os.path.join(OUTPUTS_DIR, "your_book.docx")
+OUTPUTS_DIR       = os.path.join(REPO_ROOT, "outputs")
+OUTPUT_PDF        = os.path.join(OUTPUTS_DIR, "your_book.pdf")
+OUTPUT_EPUB       = os.path.join(OUTPUTS_DIR, "your_book.epub")
+OUTPUT_DOCX       = os.path.join(OUTPUTS_DIR, "your_book.docx")
 
 # -----------------------------------------------------------------------
 # ASSETS
 # -----------------------------------------------------------------------
-ASSETS_DIR       = os.path.join(REPO_ROOT, "assets")
-COVER_DIR        = os.path.join(ASSETS_DIR, "cover")
-BASE_COVER       = os.path.join(COVER_DIR, "base_cover.png")
-FINAL_COVER = os.path.join(COVER_DIR, "final_cover.jpg")
-FONTS_DIR        = os.path.join(ASSETS_DIR, "fonts")
-IMAGES_DIR       = os.path.join(ASSETS_DIR, "images")
+ASSETS_DIR        = os.path.join(REPO_ROOT, "assets")
+COVER_DIR         = os.path.join(ASSETS_DIR, "cover")
+BASE_COVER        = os.path.join(COVER_DIR, "base_cover.png")
+FINAL_COVER       = os.path.join(COVER_DIR, "front_cover.jpg")
+FONTS_DIR         = os.path.join(ASSETS_DIR, "fonts")
+IMAGES_DIR        = os.path.join(ASSETS_DIR, "images")
 
 # -----------------------------------------------------------------------
 # TOOLS
 # -----------------------------------------------------------------------
-TOOLS_DIR        = os.path.join(REPO_ROOT, "tools")
-PREAMBLE_TEX     = os.path.join(REPO_ROOT, "preamble.tex")
-ANCHOR_MD        = os.path.join(REPO_ROOT, "ANCHOR.md")
-PROGRESS_LOG     = os.path.join(REPO_ROOT, "INTERIM_PROGRESS_LOG.md")
+TOOLS_DIR         = os.path.join(REPO_ROOT, "tools")
+PREAMBLE_TEX      = os.path.join(REPO_ROOT, "preamble.tex")
+ANCHOR_MD         = os.path.join(REPO_ROOT, "ANCHOR.md")
+PROGRESS_LOG      = os.path.join(REPO_ROOT, "INTERIM_PROGRESS_LOG.md")
 
 # -----------------------------------------------------------------------
 # BUILD COMMANDS
 # -----------------------------------------------------------------------
-BUILD_DOCX = f'pandoc "{MANUSCRIPT}" -o "{OUTPUT_DOCX}"'
-BUILD_EPUB = f'pandoc "{MANUSCRIPT}" --epub-cover-image="{FINAL_COVER}" -o "{OUTPUT_EPUB}"'
-BUILD_PDF  = f'pandoc "{MANUSCRIPT}" --pdf-engine=lualatex --include-in-header="{PREAMBLE_TEX}" -o "{OUTPUT_PDF}"'
+BUILD_DOCX = (
+    f'pandoc "{MANUSCRIPT}" '
+    f'-o "{OUTPUT_DOCX}"'
+)
+
+BUILD_EPUB = (
+    f'pandoc "{MANUSCRIPT}" '
+    f'--include-before-body="{FOREWORD_FOSTER}" '
+    f'--epub-cover-image="{FINAL_COVER}" '
+    f'-o "{OUTPUT_EPUB}"'
+)
+
+BUILD_PDF = (
+    f'pandoc "{MANUSCRIPT}" '
+    f'--include-before-body="{FOREWORD_FOSTER}" '
+    f'--pdf-engine=lualatex '
+    f'--include-in-header="{PREAMBLE_TEX}" '
+    f'-o "{OUTPUT_PDF}"'
+)
 
 # -----------------------------------------------------------------------
-# VERIFICATION — two tiers
-# Required: must exist before building
-# Generated: created by build, missing before first run is normal
+# VERIFICATION
 # -----------------------------------------------------------------------
 REQUIRED_PATHS = {
-    "Repo Root":     REPO_ROOT,
-    "Manuscript":    MANUSCRIPT,
-    "Assets Dir":    ASSETS_DIR,
-    "Cover Dir":     COVER_DIR,
-    "Base Cover":    BASE_COVER,
-    "Fonts Dir":     FONTS_DIR,
-    "Images Dir":    IMAGES_DIR,
-    "Tools Dir":     TOOLS_DIR,
-    "Preamble TeX":  PREAMBLE_TEX,
-    "Anchor MD":     ANCHOR_MD,
-    "Progress Log":  PROGRESS_LOG,
+    "Repo Root":         REPO_ROOT,
+    "Manuscript":        MANUSCRIPT,
+    "Front Matter Dir":  FRONT_MATTER_DIR,
+    "Foreword (Foster)": FOREWORD_FOSTER,
+    "Assets Dir":        ASSETS_DIR,
+    "Cover Dir":         COVER_DIR,
+    "Base Cover":        BASE_COVER,
+    "Fonts Dir":         FONTS_DIR,
+    "Images Dir":        IMAGES_DIR,
+    "Tools Dir":         TOOLS_DIR,
+    "Preamble TeX":      PREAMBLE_TEX,
+    "Anchor MD":         ANCHOR_MD,
+    "Progress Log":      PROGRESS_LOG,
 }
 
 GENERATED_PATHS = {
-    "Outputs Dir":   OUTPUTS_DIR,
-    "PDF Output":    OUTPUT_PDF,
-    "EPUB Output":   OUTPUT_EPUB,
-    "DOCX Output":   OUTPUT_DOCX,
-    "Final Cover":   FINAL_COVER,
+    "Outputs Dir":  OUTPUTS_DIR,
+    "PDF Output":   OUTPUT_PDF,
+    "EPUB Output":  OUTPUT_EPUB,
+    "DOCX Output":  OUTPUT_DOCX,
+    "Final Cover":  FINAL_COVER,
 }
 
 if __name__ == "__main__":
-    print("\n=== DoughForge W-Anchor Path Verification ===\n")
+    print("\n=== DoughForge W⚓ Anchor — Path Verification ===\n")
 
     print("  -- Required (must exist before building) --\n")
     required_ok = True
