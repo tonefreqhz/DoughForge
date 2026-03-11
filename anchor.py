@@ -1,26 +1,19 @@
-import os
+# Outputs
+OUTPUT_PDF   = os.path.join(OUTPUTS_DIR, "your_book.pdf")
+OUTPUT_EPUB  = os.path.join(OUTPUTS_DIR, "your_book.epub")
+OUTPUT_DOCX  = os.path.join(OUTPUTS_DIR, "your_book.docx")
 
-# Anchor: Define repo root and key paths
-REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
-PUBLICATION_DIR = os.path.join(REPO_ROOT, "publication")
-MANUSCRIPT = os.path.join(PUBLICATION_DIR, "your_book.md")
-OUTPUTS_DIR = os.path.join(REPO_ROOT, "outputs")
-ASSETS_DIR = os.path.join(REPO_ROOT, "assets")
-COVER_DIR = os.path.join(ASSETS_DIR, "cover")
-BASE_COVER = os.path.join(COVER_DIR, "base_cover.png")
-FINAL_COVER = os.path.join(COVER_DIR, "front_cover.jpg")
-FONTS_NOTO = os.path.join(REPO_ROOT, "Noto_Sans")
-FONTS_SORA = os.path.join(REPO_ROOT, "Sora")
+# Assets
+FONTS_DIR    = os.path.join(ASSETS_DIR, "fonts")
+IMAGES_DIR   = os.path.join(ASSETS_DIR, "images")
 
-# Verify on import
-if __name__ == "__main__":
-    paths = {
-        "Repo Root": REPO_ROOT,
-        "Manuscript": MANUSCRIPT,
-        "Outputs": OUTPUTS_DIR,
-        "Base Cover": BASE_COVER,
-        "Final Cover": FINAL_COVER,
-    }
-    for name, path in paths.items():
-        status = "OK" if os.path.exists(path) else "MISSING"
-        print(f"[{status}] {name}: {path}")
+# Tools
+TOOLS_DIR    = os.path.join(REPO_ROOT, "tools")
+PREAMBLE_TEX = os.path.join(REPO_ROOT, "preamble.tex")
+ANCHOR_MD    = os.path.join(REPO_ROOT, "ANCHOR.md")
+PROGRESS_LOG = os.path.join(REPO_ROOT, "INTERIM_PROGRESS_LOG.md")
+
+# Build commands
+BUILD_DOCX = f'pandoc "{MANUSCRIPT}" -o "{OUTPUT_DOCX}"'
+BUILD_EPUB = f'pandoc "{MANUSCRIPT}" --epub-cover-image="{FINAL_COVER}" -o "{OUTPUT_EPUB}"'
+BUILD_PDF  = f'pandoc "{MANUSCRIPT}" --pdf-engine=lualatex --include-in-header="{PREAMBLE_TEX}" -o "{OUTPUT_PDF}"'
