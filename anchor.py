@@ -184,9 +184,9 @@ GENERATED_PATHS_BUMPER = {
 # VERIFICATION RUNNER
 # -----------------------------------------------------------------------
 if __name__ == "__main__":
-    print("\n=== DoughForge W⚓ Anchor — Path Verification ===")
+    
     print(POWERSHELL_CD_NOTE)
-
+    print("\n=== DoughForge W-Anchor Anchor — Path Verification ===")
     print("  -- Standard Edition: Required --\n")
     required_ok = True
     for label, path in REQUIRED_PATHS.items():
