@@ -1,7 +1,3 @@
-# ── CREATE FOLDER AND WRITE FOREWORD ──────────────────────────────────────────
-New-Item -ItemType Directory -Force -Path "publication\front_matter"
-
-Set-Content "publication\front_matter\foreword_foster_lewis.md" -Encoding UTF8 -Value @'
 # FOREWORD
 
 *By Foster Lewis, author of* The Miner's Tale
@@ -90,14 +86,3 @@ That is all any writer can ask. It is all I ever asked.
 *Foster Lewis*
 *Tonyrefail, Rhondda Valley*
 *Written in his eighty-third year, with the patient assistance of his wife Doris*
-'@
-
-Write-Host "Foreword written." -ForegroundColor Green
-
-# ── VERIFY ANCHOR — should now show all OK ────────────────────────────────────
-python anchor.py
-
-# ── COMMIT THE ACTUAL FILE ────────────────────────────────────────────────────
-git add "publication\front_matter\foreword_foster_lewis.md"
-git commit -m "Write foreword_foster_lewis.md to publication\front_matter — anchor paths now fully resolved"
-git push
