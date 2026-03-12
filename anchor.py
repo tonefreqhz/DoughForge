@@ -75,7 +75,8 @@ PROGRESS_LOG        = os.path.join(REPO_ROOT, "INTERIM_PROGRESS_LOG.md")
 BOOK_TITLE_STANDARD  = "Your Book Title"
 BOOK_TITLE_BUMPER    = "The Conquest of DoughForge"
 BOOK_SUBTITLE_BUMPER = "The Truth Will Set You Free — But First It Will Piss You Off"
-BOOK_AUTHOR          = "Foster Lewis"
+BOOK_AUTHOR          = "Roger G Lewis"
+FOREWORD_AUTHOR      = "Foster Lewis"
 EDITION_BUMPER       = "Bumper Edition"
 EDITION_PRICE        = "£29.99"
 
@@ -184,7 +185,7 @@ GENERATED_PATHS_BUMPER = {
 # VERIFICATION RUNNER
 # -----------------------------------------------------------------------
 if __name__ == "__main__":
-    
+
     print(POWERSHELL_CD_NOTE)
     print("\n=== DoughForge W-Anchor Anchor — Path Verification ===")
     print("  -- Standard Edition: Required --\n")
@@ -236,5 +237,6 @@ if __name__ == "__main__":
     print(f"  Title:     {BOOK_TITLE_BUMPER}")
     print(f"  Subtitle:  {BOOK_SUBTITLE_BUMPER}")
     print(f"  Author:    {BOOK_AUTHOR}")
+    print(f"  Foreword:  {FOREWORD_AUTHOR}")
     print(f"  Edition:   {EDITION_BUMPER}")
     print(f"  Price:     {EDITION_PRICE}\n")
