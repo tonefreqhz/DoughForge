@@ -49,9 +49,9 @@ except ImportError:
 # -----------------------------------------------------------------------
 # FONT PATHS — drop .ttf files into assets\fonts\ and update these
 # -----------------------------------------------------------------------
-FONT_TITLE_PATH    = os.path.join(FONTS_DIR, "title_font.ttf")
-FONT_SUBTITLE_PATH = os.path.join(FONTS_DIR, "body_font.ttf")
-FONT_AUTHOR_PATH   = os.path.join(FONTS_DIR, "body_font.ttf")
+FONT_TITLE_PATH    = os.path.join(FONTS_DIR, "VT323-Regular.ttf")
+FONT_SUBTITLE_PATH = os.path.join(FONTS_DIR, "Noto_Sans", "NotoSans-VariableFont_wdth,wght.ttf")
+FONT_AUTHOR_PATH   = os.path.join(FONTS_DIR, "Noto_Sans", "NotoSans-VariableFont_wdth,wght.ttf")
 
 FONT_TITLE_SIZE    = 120
 FONT_SUBTITLE_SIZE = 52

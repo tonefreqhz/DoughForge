@@ -5,3 +5,10 @@
   Note     : The machine cannot parse the human without a wrapper.
              The wrapper is the workflow. The workflow is the loom.
 ------------------------------------------------------------
+[2026-03-13 19:38]
+  Drafted  : 7 chapters
+  To Draft : 1 chapters
+  Next     : Ch 0.0 — Series Introduction
+  Note     : The machine cannot parse the human without a wrapper.
+             The wrapper is the workflow. The workflow is the loom.
+------------------------------------------------------------

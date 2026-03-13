@@ -40,6 +40,13 @@ baseline hash. Every future git checkout re-verifies your file tree automaticall
 Paste the full output into your AI prompt before asking anything else.
 The model is then reading from the same ground truth as your file system.
 
+### Step 1b — Check chapter progress state
+
+```powershell
+cd "C:\Users\peewe\Documents\DoughForge"
+.\anchor-state.ps1
+
+
 ### Step 2 — Build commands
 
 Build commands:

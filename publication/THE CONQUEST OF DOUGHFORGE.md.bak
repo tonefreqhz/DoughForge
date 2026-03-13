@@ -67,6 +67,7 @@ git status -sb
 The output was a mess:
 
 ```
+```
 ## main...origin/main [ahead 7]
  M vault/FAIR.md
  M publication/pamphlet_issue_1.md
@@ -82,6 +83,7 @@ This was what drift looked like in practice: a repository full of half-finished 
 Roger opened why_is_this_not_working.txt. It contained a single line:
 
 ```
+```
 Because we keep forgetting what we decided six hours ago.
 He'd written that at hour sixteen, in a moment of exhausted clarity.
 
@@ -95,6 +97,7 @@ But Roger had made a mistake: he hadn't pasted the anchor into the Grok session.
 
 Roger opened ANCHOR.md and read through it:
 
+```
 ```
 # W⚓ PROTOCOL — ANCHOR DOCUMENT
 
@@ -193,6 +196,7 @@ Two AIs. Two marathons. Two complete records of what it looked like to fight con
 Roger created a new file: docs/the_all_nighter.md
 
 ```
+```
 # The All-Nighter: A Case Study in Context Drift Recovery
 
 ## Timeline
@@ -253,6 +257,7 @@ But something had changed during those twenty-two hours. Something he couldn't q
 He opened a new document: docs/parliament_of_llms.md
 
 ```
+```
 # The Parliament of LLMs: A Response to the Unacknowledged Legislators
 
 ## Epigraph
@@ -274,6 +279,7 @@ But for Roger's use case—building a reproducible publishing pipeline across mu
 He returned to the document:
 
 ```
+```
 ## The Problem with Parliaments
 
 A parliament is supposed to represent the people. But what happens when the parliament has no memory?
@@ -285,6 +291,7 @@ That's what working with LLMs feels like.
 Not because they're bad. But because they're *stateless*.
 Roger took a sip of espresso and kept typing:
 
+```
 ```
 ## The Three Types of Drift
 
@@ -321,6 +328,7 @@ Not as catchy, though.
 He kept writing:
 
 ```
+```
 ## The Anchor Pattern: A Manual RAG System
 
 The solution isn't to fix the AI's memory. You can't. The architecture is what it is.
@@ -350,8 +358,8 @@ Roger saved the file and opened the commit history for both repositories:
 DoughForge:
 
 22 commits over 3 weeks
-ANCHOR.md created on commit \#4
-Major drift recovery on commit \#18
+ANCHOR.md created on commit #4
+Major drift recovery on commit #18
 Reproducible Self-Pub Kit:
 
 101 commits over 6 months
@@ -362,6 +370,7 @@ The pattern was clear: the repositories with anchors had cleaner histories. Fewe
 He opened a new terminal and ran a quick analysis:
 
 ```
+```
 # Count "fix" commits before and after anchor introduction
 cd C:\Users\peewe\Documents\DoughForge
 git log --oneline --before="2026-03-01" | Select-String "fix" | Measure-Object
@@ -369,12 +378,12 @@ git log --oneline --before="2026-03-01" | Select-String "fix" | Measure-Object
 
 git log --oneline --after="2026-03-01" | Select-String "fix" | Measure-Object
 # Result: 3 fix commits
-```
 The numbers told the story. Before the anchor: chaos. After the anchor: boring, predictable progress.
 
 Roger returned to the document:
 
-
+```
+```
 ## Why This Matters Beyond Publishing
 
 The anchor pattern applies wherever:
@@ -399,13 +408,13 @@ What works (do not break)
 Current known issues
 <list>
 Last good build command
-<command>
-
+<command> ```
 Update it whenever something is fixed, broken, or changed.
 
 Paste it whenever the AI starts drifting.
 
-
+```
+```
 ---
 
 Roger's phone buzzed. A notification from GitHub:
@@ -471,6 +480,7 @@ One Week After the Parliament Essay
 
 Roger Lewis was staring at a commit message that shouldn't exist.
 
+```
 ```
 commit 764c3b8
 Author: tonefreqhz <roger@example.com>
@@ -557,6 +567,7 @@ Roger read the issue twice. The user was right. The anchor pattern had a weaknes
 He opened a new file: docs/anchor_refresh_pattern.md
 
 ```
+```
 # Anchor Refresh Pattern: Preventing Drift in Marathon Sessions
 
 ## The Problem
@@ -583,13 +594,13 @@ A lightweight tool could:
 - Auto-inject the anchor if the user confirms
 
 This would make the pattern accessible to less experienced users who might not notice drift until it's too late.
-He saved the file, committed it, and responded to Issue \#7:
+He saved the file, committed it, and responded to Issue #7:
 
 You're absolutely right. The anchor can drift out of context in very long threads. I've just pushed documentation for the "Anchor Refresh Pattern"—basically, re-paste the anchor every 20-30 exchanges.
 
 I'm also marking this as a feature request for the automation tool (auto-inject anchor at session start + refresh prompts). Thanks for the detailed report!
 
-Roger opened Issue \#4:
+Roger opened Issue #4:
 
 Feature request: Auto-inject anchor at session start
 
@@ -637,6 +648,7 @@ The numbers didn't lie. The anchor pattern worked.
 He opened a new document: docs/the_conquest_so_far.md
 
 ```
+```
 # The Conquest of DoughForge: A Timeline
 
 ## Week 1: The Problem
@@ -681,6 +693,7 @@ He opened a new document: docs/the_conquest_so_far.md
 4. Continue documenting edge cases and refinements
 Roger saved the file and pushed it to both repositories:
 
+```
 ```
 # DoughForge
 cd C:\Users\peewe\Documents\DoughForge
@@ -754,11 +767,11 @@ He'd been calling it the W⚓ Protocol. But looking at it now, he realized what 
 
 His phone buzzed. Another GitHub notification.
 
-Issue \#12: "Used anchor pattern for 3-month data science project—zero drift incidents"
+Issue #12: "Used anchor pattern for 3-month data science project—zero drift incidents"
 
-Issue \#13: "Question: Can we use this for legal document workflows?"
+Issue #13: "Question: Can we use this for legal document workflows?"
 
-Issue \#14: "Feature request: Multi-anchor support for projects with multiple repos"
+Issue #14: "Feature request: Multi-anchor support for projects with multiple repos"
 
 The community was growing faster than he'd anticipated. What had started as a desperate hack during a late-night coding session had become something bigger: a movement.
 
@@ -775,7 +788,7 @@ Roger opened his laptop and navigated to the DoughForge repository. The stats we
 8 contributors (people he'd never met were submitting pull requests)
 He clicked through to the most recent PR:
 
-Pull Request \#7: "Add multi-repo anchor support"
+Pull Request #7: "Add multi-repo anchor support"
 
 This PR adds support for projects that span multiple repositories. Key changes:
 
@@ -788,6 +801,7 @@ Roger read through the code. It was clean. Well-documented. Better than what he 
 
 He approved the PR and merged it:
 
+```
 ```
 Merge pull request #7 from contributor/multi-repo-support
 
@@ -810,6 +824,7 @@ He opened the second repository: reproducible-self-pub-kit. This one had a diffe
 
 The latest commit was from two hours ago:
 
+```
 ```
 commit 8f4a21c
 Author: contributor <author@example.com>
@@ -837,6 +852,7 @@ Roger smiled. Three books in a month. That was the promise of the kit: not just 
 He opened a new terminal and ran a diagnostic on both repositories:
 
 ```
+```
 # DoughForge
 cd C:\Users\peewe\Documents\DoughForge
 git log --oneline --since="3 weeks ago" | Measure-Object
@@ -846,8 +862,6 @@ git log --oneline --since="3 weeks ago" | Measure-Object
 cd C:\Users\peewe\OneDrive\Desktop\reproducible-self-pub-kit
 git log --oneline --since="3 weeks ago" | Measure-Object
 # Result: 67 commits in 3 weeks
-```
-
 156 commits in three weeks. An average of 7.4 commits per day. And that was just the two main repositories—contributors were forking, experimenting, building their own variations.
 
 The fortress was expanding.
@@ -929,6 +943,7 @@ But the book was something else. The book was about the experience. What it felt
 He opened his laptop and created a new file: manuscript/outline.md
 
 ```
+```
 # The Conquest of DoughForge: A Thriller About Context Drift
 
 ## Structure (Dan Brown style)
@@ -1009,6 +1024,7 @@ That was the moment. The moment when the pattern went from "desperate hack" to "
 Roger highlighted the exchange and added it to his notes:
 
 ```
+```
 ## Key Quote for Chapter 3
 "The best solutions usually do [feel like cheating]."
 
@@ -1031,6 +1047,7 @@ Roger opened a new file: manuscript/chapter_2_the_all_nighter.md
 
 He copied the Lance Armstrong exchange into the document and began writing around it:
 
+```
 ```
 # Chapter 2: The All-Nighter
 
@@ -1144,6 +1161,7 @@ Then he got to the solution.
 He clicked to a slide showing the anchor structure:
 
 ```
+```
 # Project Anchor
 
 ## Root
@@ -1180,6 +1198,7 @@ Claude: "Here's a Python script that does that..."
 The script appeared on screen. Roger highlighted the key lines:
 
 ```
+```
 INPUT_DIR = Path("/home/user/project/inputs/canonical")
 OUTPUT_DIR = Path("/home/user/project/outputs")
 "Perfect. The AI is respecting the conventions. Now let's keep going."
@@ -1202,6 +1221,7 @@ The audience murmured. Some were nodding. They'd seen this before.
 
 Roger opened a text file labeled ANCHOR.md and copied its contents into the chat:
 
+```
 ```
 # Project Anchor
 
@@ -1335,6 +1355,7 @@ The recursion was almost poetic.
 He opened manuscript/chapter_10_the_unacknowledged_legislators.md and began typing:
 
 ```
+```
 # Chapter 10: The Unacknowledged Legislators
 
 Percy Bysshe Shelley wrote that poets are "the unacknowledged legislators of the world." He meant that poets shape culture and thought without ever holding formal power. They work in the margins, influencing society through art rather than law.
@@ -1354,6 +1375,7 @@ He kept it anyway.
 
 The next section flowed more easily:
 
+```
 ```
 ## The Future of Human-AI Collaboration
 
@@ -1379,12 +1401,13 @@ He opened the terminal and ran the build command:
 
 ```
 cd C:\Users\peewe\OneDrive\Desktop\reproducible-self-pub-kit
-.\sweep_up\inbox\rebuild_publish.ps1
 ```
+.\sweep_up\inbox\rebuild_publish.ps1
 The script ran. Figures generated. Metadata validated. EPUB assembled. PDF compiled. DOCX exported.
 
 Three minutes later, the output appeared in publication/print_latest/:
 
+```
 ```
 conquest_of_doughforge.epub
 conquest_of_doughforge.pdf
@@ -1420,7 +1443,7 @@ Not the Lance Armstrong joke summit. The real one. The place where you look back
 
 His phone buzzed. A GitHub notification.
 
-Issue \#89: "Thank you for the anchor pattern. It saved my startup."
+Issue #89: "Thank you for the anchor pattern. It saved my startup."
 
 Roger smiled and kept walking.
 
@@ -1491,7 +1514,7 @@ It had been exhausting. Exhilarating. Absurd. Worth it.
 
 Roger opened his laptop one last time before bed. A new GitHub issue had been opened:
 
-Issue \#247: "Anchor pattern used in production at Google"
+Issue #247: "Anchor pattern used in production at Google"
 
 Just wanted to let you know: we've integrated the W⚓ Protocol into our internal AI tooling. Thousands of engineers are using it daily. Context drift incidents down 87%.
 
@@ -1511,6 +1534,7 @@ And the fortress would hold.
 
 Roger opened one final file: docs/final_thoughts.md
 
+```
 ```
 # Final Thoughts on the Conquest
 

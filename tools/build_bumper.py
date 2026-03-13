@@ -1,0 +1,65 @@
+# tools/build_bumper.py
+# DoughForge W-Anchor -- Bumper Edition Orchestrator
+import os, sys, subprocess
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from anchor import (
+    REPO_ROOT, BASE_COVER_BUMPER, FINAL_COVER_BUMPER,
+    OUTPUT_EPUB_BUMPER, DEDICATION_BUMPER, FOREWORD_BUMPER,
+    PREFACE_BUMPER, MANUSCRIPT, BUILD_EPUB_BUMPER,
+    POWERSHELL_CD_NOTE, OUTPUTS_DIR,
+)
+
+def preflight():
+    required = {
+        'Manuscript':          MANUSCRIPT,
+        'Base Cover (Bumper)': BASE_COVER_BUMPER,
+        'Dedication':          DEDICATION_BUMPER,
+        'Foreword (Bumper)':   FOREWORD_BUMPER,
+        'Preface (Bumper)':    PREFACE_BUMPER,
+    }
+    missing = ['  MISSING  ' + k.ljust(26) + ' ' + v
+               for k, v in required.items() if not os.path.exists(v)]
+    if missing:
+        print('\n  STOP: Preflight failed:\n')
+        [print(m) for m in missing]
+        sys.exit(1)
+    print('  Preflight OK -- all required inputs present.')
+
+def run_compositor():
+    compositor = os.path.join(REPO_ROOT, 'tools', 'composite_cover.py')
+    print('\n--- Step 1: Cover Compositor ---')
+    if not os.path.exists(compositor):
+        print('  STOP: not found: ' + compositor)
+        sys.exit(1)
+    r = subprocess.run([sys.executable, compositor], cwd=REPO_ROOT)
+    if r.returncode != 0:
+        print('  STOP: compositor exit ' + str(r.returncode))
+        sys.exit(r.returncode)
+    if not os.path.exists(FINAL_COVER_BUMPER):
+        print('  STOP: cover not written to ' + FINAL_COVER_BUMPER)
+        sys.exit(1)
+    kb = os.path.getsize(FINAL_COVER_BUMPER) // 1024
+    print('  Cover written: ' + FINAL_COVER_BUMPER + '  (' + str(kb) + ' KB)')
+
+def run_pandoc():
+    print('\n--- Step 2: Pandoc ePub Build ---')
+    print('  Command: ' + BUILD_EPUB_BUMPER + '\n')
+    os.makedirs(OUTPUTS_DIR, exist_ok=True)
+    r = subprocess.run(BUILD_EPUB_BUMPER, shell=True, cwd=REPO_ROOT)
+    if r.returncode != 0:
+        print('  STOP: Pandoc exit ' + str(r.returncode))
+        sys.exit(r.returncode)
+    if not os.path.exists(OUTPUT_EPUB_BUMPER):
+        print('  STOP: ePub not found at ' + OUTPUT_EPUB_BUMPER)
+        sys.exit(1)
+    kb = os.path.getsize(OUTPUT_EPUB_BUMPER) // 1024
+    print('  ePub written: ' + OUTPUT_EPUB_BUMPER + '  (' + str(kb) + ' KB)')
+
+if __name__ == '__main__':
+    print('\n=== DoughForge W-Anchor -- Bumper Edition Build ===')
+    print(POWERSHELL_CD_NOTE)
+    preflight()
+    run_compositor()
+    run_pandoc()
+    print('\n=== Build Complete ===')
+    print('  ePub: ' + OUTPUT_EPUB_BUMPER + '\n')

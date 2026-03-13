@@ -1,4 +1,4 @@
-# FOREWORD
+\section*{FOREWORD}
 
 *By Foster Lewis, author of* The Miner's Tale
 
