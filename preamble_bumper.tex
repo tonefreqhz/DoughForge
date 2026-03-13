@@ -1,0 +1,72 @@
+﻿% preamble_bumper.tex — DoughForge Bumper Edition
+% Roger G Lewis · MIT License
+% lualatex via Pandoc
+
+% --- PAGE GEOMETRY ---
+\usepackage[paperwidth=6in,paperheight=9in,top=1in,bottom=1in,inner=1.1in,outer=0.85in,includeheadfoot]{geometry}
+
+% --- FONT STACK ---
+\usepackage{fontspec}
+\setmainfont{Noto Sans}
+\setsansfont{Noto Sans}
+\setmonofont[Scale=0.9]{Inconsolata}
+
+% --- EMOJI AND MATH ---
+\usepackage{emoji}
+\usepackage{amsmath,amssymb}
+
+% --- TYPOGRAPHY ---
+\usepackage{microtype}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% --- HEADINGS ---
+\usepackage{titlesec}
+\titleformat{\section}{\sffamily\Large\bfseries}{}{0em}{}
+\titleformat{\subsection}{\sffamily\large\bfseries}{}{0em}{}
+
+% --- HEADERS AND FOOTERS ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\sffamily The Conquest of DoughForge}
+\fancyhead[RO]{\small\sffamily Bumper Edition}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- PDF METADATA ---
+\usepackage{hyperref}
+\hypersetup{
+  pdftitle={The Conquest of DoughForge --- Bumper Edition},
+  pdfauthor={Roger G Lewis},
+  pdfsubject={Independent publishing, W-Anchor Protocol},
+  pdfkeywords={DoughForge, reproducible publishing, W-Anchor, anchor.py},
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue!70!black,
+  citecolor=black,
+  bookmarksnumbered=true,
+  bookmarksopen=true
+}
+
+% --- IMAGES ---
+\usepackage{graphicx}
+\graphicspath{{assets/cover/}{assets/images/}}
+
+% --- TABLES ---
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+
+% --- CODE BLOCKS ---
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{basicstyle=\ttfamily\small,backgroundcolor=\color{gray!10},frame=single,breaklines=true,showstringspaces=false}
+
+% --- DEDICATION ---
+\newenvironment{dedication}{\clearpage\thispagestyle{empty}\vspace*{3cm}\begin{flushright}\itshape}{\end{flushright}\clearpage}
+
+% END preamble_bumper.tex
