@@ -12,9 +12,21 @@ DoughForge is a book project and a toolkit. It contains:
 
 ## Quick Start
 
-Run this to check your build environment is working:
+### Step 0 — Install the W-Anchor hook (once, after cloning)
 
-    python anchor.py
+    .\setup.ps1
+
+This installs anchor.py as an automatic post-checkout hook and stores your
+baseline hash. Every future git checkout re-verifies your file tree automatically.
+
+### Step 1 — Verify your environment before every LLM session
+
+    .\anchor_verify.ps1
+
+Paste the full output into your AI prompt before asking anything else.
+The model is then reading from the same ground truth as your file system.
+
+### Step 2 — Build commands
 
 Build commands:
 
