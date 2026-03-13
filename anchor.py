@@ -29,6 +29,12 @@ PREAMBLE_TEX        = os.path.join(REPO_ROOT, "preamble.tex")
 PREAMBLE_TEX_BUMPER = os.path.join(REPO_ROOT, "preamble_bumper.tex")
 ANCHOR_MD           = os.path.join(REPO_ROOT, "ANCHOR.md")
 PROGRESS_LOG        = os.path.join(REPO_ROOT, "INTERIM_PROGRESS_LOG.md")
+
+# --- Chapters ---
+CHAPTERS_DIR  = os.path.join(REPO_ROOT, "chapters")
+SERIES_INTRO  = os.path.join(CHAPTERS_DIR, "Ch0.0-SeriesIntroduction.md")
+
+# --- Book Metadata ---
 BOOK_TITLE_STANDARD  = "DoughForge: The Reproducible Self-Publishing Desktop Kit"
 BOOK_TITLE_BUMPER    = "The Conquest of DoughForge"
 BOOK_SUBTITLE_BUMPER = "The Truth Will Set You Free - But First It Will Piss You Off"
@@ -36,6 +42,51 @@ BOOK_AUTHOR          = "Roger G Lewis"
 FOREWORD_AUTHOR      = "Foster Lewis"
 EDITION_BUMPER       = "Bumper Edition"
 EDITION_PRICE        = ""
+
+# --- Session Note ---
+POWERSHELL_CD_NOTE = "  (Run from: cd \"C:\\Users\\peewe\\Documents\\DoughForge\")"
+
+# --- Bumper EPUB Build Command ---
+BUILD_EPUB_BUMPER = (
+    "pandoc"
+    " publication/front_matter/foreword_bumper.md"
+    " publication/front_matter/dedication_bumper.md"
+    " publication/front_matter/preface_bumper.md"
+    " chapters/Ch0.0-SeriesIntroduction.md"
+    " chapters/Ch0.1-UnacknowledgedLegislator.md"
+    " chapters/Ch0.2-TheRationStillArriving.md"
+    " chapters/Ch0.4-TheMoralSign.md"
+    " chapters/Ch0.5-TheDyingBirdAndThePlumage.md"
+    " chapters/Ch0.6-TheFormulaAndTheCounterSpell.md"
+    " chapters/Ch0.7-TheGreySpace.md"
+    " chapters/quickstart.md"
+    " --epub-cover-image=\"assets/cover/front_cover_bumper.jpg\""
+    " --metadata title=\"The Conquest of DoughForge\""
+    " --metadata subtitle=\"The Truth Will Set You Free - But First It Will Piss You Off\""
+    " --metadata author=\"Roger G Lewis\""
+    " -o outputs/conquest_of_doughforge_bumper.epub"
+)
+
+# --- Bumper PDF Build Command ---
+BUILD_PDF_BUMPER = (
+    "pandoc"
+    " publication/front_matter/foreword_bumper.md"
+    " publication/front_matter/dedication_bumper.md"
+    " publication/front_matter/preface_bumper.md"
+    " chapters/Ch0.0-SeriesIntroduction.md"
+    " chapters/Ch0.1-UnacknowledgedLegislator.md"
+    " chapters/Ch0.2-TheRationStillArriving.md"
+    " chapters/Ch0.4-TheMoralSign.md"
+    " chapters/Ch0.5-TheDyingBirdAndThePlumage.md"
+    " chapters/Ch0.6-TheFormulaAndTheCounterSpell.md"
+    " chapters/Ch0.7-TheGreySpace.md"
+    " chapters/quickstart.md"
+    " --pdf-engine=lualatex"
+    " --include-in-header=preamble_bumper.tex"
+    " -o outputs/conquest_of_doughforge_bumper.pdf"
+)
+
+# --- Path Registries ---
 REQUIRED_PATHS = {
     "Repo Root":            REPO_ROOT,
     "Manuscript":           MANUSCRIPT,
@@ -57,6 +108,7 @@ REQUIRED_PATHS_BUMPER = {
     "Dedication Bumper":    DEDICATION_BUMPER,
     "Preface Bumper":       PREFACE_BUMPER,
     "Preamble TeX Bumper":  PREAMBLE_TEX_BUMPER,
+    "Series Intro":         SERIES_INTRO,
 }
 GENERATED_PATHS = {
     "Outputs Dir":  OUTPUTS_DIR,
@@ -71,6 +123,7 @@ GENERATED_PATHS_BUMPER = {
     "EPUB Output Bumper":   OUTPUT_EPUB_BUMPER,
     "DOCX Output Bumper":   OUTPUT_DOCX_BUMPER,
 }
+
 if __name__ == "__main__":
     required_ok = True
     bumper_ok = True
