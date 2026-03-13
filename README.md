@@ -1,3 +1,17 @@
+## 🔒 Session Anchor — Start Here Every Time
+
+Before every session (human or AI), run:
+
+``powershell
+cd "<YOUR_REPO_ROOT>"
+.\AutoAnchor.ps1
+````n
+Paste the full output into your AI prompt before asking anything else.
+**ANCHOR VERIFIED — no drift detected.** means you are safe to proceed.
+Never skip this step. Never assume the shell is already in the right place.
+
+---
+
 # DoughForge
 
 A publishing pipeline for independent authors, built on the W-Anchor Protocol.
