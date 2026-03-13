@@ -21,7 +21,7 @@ Write-Host " DOUGHFORGE ANCHOR STATE — Going Direct Paradigm" -ForegroundColor
 Write-Host " Part Zero: The Poet Who Needed a Workflow" -ForegroundColor Cyan
 Write-Host "============================================================" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "Ch 0.0 — TO DRAFT : Series Introduction" -ForegroundColor Yellow
+Write-Host "Ch 0.0 — DRAFTED  : Series Introduction" -ForegroundColor Yellow
 Write-Host "Ch 0.1 — DRAFTED  : The Unacknowledged Legislator Writes a Build Script" -ForegroundColor Green
 Write-Host "Ch 0.2 — DRAFTED  : The Ration Still Arriving" -ForegroundColor Green
 Write-Host "Ch 0.3 — DRAFTED  : Who Do We Owe This Money To, Exactly?" -ForegroundColor Green
@@ -32,7 +32,7 @@ Write-Host "Ch 0.7 — DRAFTED  : The Grey Space" -ForegroundColor Green
 Write-Host ""
 
 $AnchorState = @(
-    [PSCustomObject]@{ Chapter = "0.0"; Title = "Series Introduction"; Status = "TO DRAFT" },
+    [PSCustomObject]@{ Chapter = "0.0"; Title = "Series Introduction"; Status = "DRAFTED" },
     [PSCustomObject]@{ Chapter = "0.1"; Title = "The Unacknowledged Legislator Writes a Build Script"; Status = "DRAFTED" },
     [PSCustomObject]@{ Chapter = "0.2"; Title = "The Ration Still Arriving"; Status = "DRAFTED" },
     [PSCustomObject]@{ Chapter = "0.3"; Title = "Who Do We Owe This Money To, Exactly?"; Status = "DRAFTED" },
